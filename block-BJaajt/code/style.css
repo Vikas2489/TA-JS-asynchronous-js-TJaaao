@@ -1,0 +1,236 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* general styles */
+
+.flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: paleturquoise;
+    padding-bottom: 200px;
+}
+
+header,
+h2 {
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.container {
+    width: 900px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.center {
+    text-align: center;
+}
+
+.margin {
+    margin: 1.4rem 0;
+}
+
+.user-img {
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+}
+
+.followers,
+.following {
+    height: 5.5rem;
+    width: 5.5rem;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.real-name {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.userName {
+    font-size: 0.89rem;
+    margin: 1rem 0;
+}
+
+.foo {
+    margin: 2rem 0;
+}
+
+span {
+    display: block;
+    margin: 1.5rem 0;
+}
+
+button {
+    display: block;
+    outline: none;
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 0.7rem;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.cat-img {
+    object-fit: cover;
+    width: 30rem;
+    height: 30rem;
+}
+
+.cat-img {
+    margin: 2rem 0;
+}
