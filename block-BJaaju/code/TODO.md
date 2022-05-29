@@ -8,4 +8,4 @@ Create a application with the following features:
 
 To create this application use the these details:
 
-- https://unsplash.com/documentation
+-
