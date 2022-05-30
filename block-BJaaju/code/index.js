@@ -36,6 +36,7 @@ function handleSearch(e) {
         fetch(getSearchURL(input.value), (searchResult) => {
             displayImages(searchResult.results);
         });
+        input.value = "";
     }
 }
 input.addEventListener("keyup", handleSearch);
