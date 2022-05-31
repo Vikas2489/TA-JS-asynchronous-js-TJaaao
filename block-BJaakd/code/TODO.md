@@ -136,25 +136,26 @@ first
 ```js
 let first = new Promise((res, rej) => {
   res(1);
-})
-  .then((v) => {
-    console.log(v);
-    return 2;
-  })
-  .then((v) => {
-    console.log(v);
-    return 3;
-  })
-  .then((v) => {
-    console.log(v);
-    return 4;
-  });
+});
+
+first.then((v) => {
+  console.log(v);
+  return 2;
+});
+first.then((v) => {
+  console.log(v);
+  return 3;
+});
+first.then((v) => {
+  console.log(v);
+  return 4;
+});
 ```
 
 10. Try to understand the difference between the problem 8 and 9. Write your observation.
 
-when We used chaining then it returns a promise at the end in problem 8.
-when we didn't used chaining it doesn't returns a promise in the end;
+when We used chaining then it on one promise there is only one handler;
+But when We didn't used chaining then it on one promise there are multiple handler;
 
 11. Do the following
 
@@ -172,7 +173,7 @@ let nPromise = new Promise((res, rej) => {
   })
   .then((v) => {
     console.log(v);
-    return setTimeout(() => Promise.resolve('Bran'), 2000);
+    return new Promise((res, rej) => setTimeout(() => res('Bran'), 2000));
   })
-  .then((v) => console.log(v));
+  .then(console.log);
 ```
