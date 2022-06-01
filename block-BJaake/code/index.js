@@ -2,23 +2,6 @@ let container = document.querySelector(".container");
 let url = `https://api.spaceflightnewsapi.net/v3/articles?_limit=30`;
 let select = document.querySelector("select");
 
-{
-    /* <article class="flex">
-    <div class="flex-45">
-        <img width="100%" height="50%" src="./img1.jpeg">
-    </div>
-    <div class="flex-45">
-        <h2>NASA</h2>
-        <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. provident, veniam reprehenderit atque possimus.
-        </p>
-        <div class="text-right">
-            <a href="#">Read More</a>
-        </div>
-    </div>
-    </article> */
-}
-
 
 function createUI(imageUrl, title, headline, readMoreLink) {
     let article = document.createElement("article");
@@ -51,7 +34,7 @@ function createUI(imageUrl, title, headline, readMoreLink) {
 
 let data = fetch(url).then((response) => {
     return response.json();
-}).then(function(arr) {
+}).then(function forEachNews(arr) {
     arr.forEach((elm) => {
         createUI(elm.imageUrl, elm.newsSite, elm.title, elm.url);
     });
@@ -60,9 +43,11 @@ let data = fetch(url).then((response) => {
     select.addEventListener("change", (e) => {
         container.innerHTML = "";
         let value = e.target.value;
+        if (value === "news") {
+            forEachNews(arr);
+        }
         let filteredArr = arr.filter((elm) => elm.newsSite === value);
         filteredArr.forEach((elm) => {
-
             createUI(elm.imageUrl, elm.newsSite, elm.title, elm.url);
         });
 
