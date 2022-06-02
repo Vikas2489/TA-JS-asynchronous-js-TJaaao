@@ -1,81 +1,75 @@
 let container = document.querySelector(".container");
 let apiUrl = `https://api.spaceflightnewsapi.net/v3/articles?_limit=30`;
 let select = document.querySelector("select");
+let main = document.querySelector("main");
 
-
-function createUI(imageUrl, title, headline, readMoreLink) {
-    let article = document.createElement("article");
-    article.classList.add("flex");
-    let div = document.createElement("div");
-    div.classList.add("flex-45");
-    let img = document.createElement("img");
-    img.style.width = "100%";
-    img.style.height = "100%";
-    img.src = imageUrl;
-    div.append(img);
-    let div1 = document.createElement("div");
-    div1.classList.add("flex-45");
-    let h2 = document.createElement("h2");
-    h2.innerText = title;
-    let p = document.createElement("p");
-    p.innerText = headline;
-    let div3 = document.createElement("div");
-    div3.classList.add("text-right");
-    let a = document.createElement("a");
-    a.href = readMoreLink;
-    a.innerText = `Read More`;
-    div3.append(a);
-    div1.append(h2, p, div3);
-    article.append(div, div1);
-
-    container.append(article);
+function handleLoading(status = true) {
+    if (status) {
+        container.innerHTML = `<div class="center flex"><div class="donut"></div></div>`;
+    }
 }
 
-// function fetch(url) {
-//     return new Promise((res, rej) => {
-//         let xml = new XMLHttpRequest();
-//         xml.open("GET", url);
-//         xml.onloadstart = function() {
-//             let h3 = document.createElement("h3");
-//             h3.innerText = "still-loading";
-//             container.append(h3);
-//         };
-//         xml.onloadend = function() {
-//             container.removeChild(h3);
-//         };
-//         xml.send();
-//     })
-// }
 
-
-
-
-let data = fetch(apiUrl).then((response) => {
-    console.log(response);
-    if (!response.ok) {
-        throw new Error("Check Your Internet Connection.")
-    }
-    return response.json();
-}).then(function forEachNews(arr) {
+function createUI(arr) {
+    container.innerHTML = "";
     arr.forEach((elm) => {
-        createUI(elm.imageUrl, elm.newsSite, elm.title, elm.url);
+        let article = document.createElement("article");
+        article.classList.add("flex");
+        let div = document.createElement("div");
+        div.classList.add("flex-45");
+        let img = document.createElement("img");
+        img.style.width = "100%";
+        img.style.height = "100%";
+        img.src = elm.imageUrl;
+        div.append(img);
+        let div1 = document.createElement("div");
+        div1.classList.add("flex-45");
+        let h2 = document.createElement("h2");
+        h2.innerText = elm.newsSite;
+        let p = document.createElement("p");
+        p.innerText = elm.title;
+        let div3 = document.createElement("div");
+        div3.classList.add("text-right");
+        let a = document.createElement("a");
+        a.href = elm.url;
+        a.innerText = `Read More`;
+        div3.append(a);
+        div1.append(h2, p, div3);
+        article.append(div, div1);
+        container.append(article);
     });
+}
 
-    select.addEventListener("change", (e) => {
-        container.innerHTML = "";
-        let value = e.target.value;
-        if (value === "news") {
-            forEachNews(arr);
+
+function init() {
+    handleLoading(true);
+    fetch(apiUrl).then((response) => {
+        if (!response.ok) {
+            throw new Error("Check Your Internet Connection.")
         }
-        let filteredArr = arr.filter((elm) => elm.newsSite === value);
-        filteredArr.forEach((elm) => {
-            createUI(elm.imageUrl, elm.newsSite, elm.title, elm.url);
-        });
+        return response.json();
+    }).then(function forEachNews(arr) {
+        handleLoading();
+        createUI(arr);
 
-    })
-}).catch((error) => {
-    let h4 = document.createElement("h4");
-    h4.innerText = error;
-    h4.style.color = "red";
-    container.append(h4);
-});
+        select.addEventListener("change", (e) => {
+            let value = e.target.value;
+            let filteredArr = arr.filter((elm) => elm.newsSite === value);
+            if (value === "news") {
+                createUI(arr);
+            } else {
+                createUI(filteredArr);
+            }
+        })
+    }).catch((error) => {
+        main.innerHTML = "";
+        let h4 = document.createElement("h4");
+        h4.innerText = error;
+        h4.style.textAlign = "center";
+        h4.style.color = "red";
+        main.append(h4);
+    });
+}
+
+
+init();
