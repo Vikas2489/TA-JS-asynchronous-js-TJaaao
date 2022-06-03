@@ -51,17 +51,10 @@ let allPromises = Promise.all(
   - https://aws.random.cat/meow
 
 ```js
-let allUrl = [`https://random.dog/woof.json`, `https://aws.random.cat/meow`];
+let promise2 = fetch(`https://random.dog/woof.json`).then((res) => res.json());
+let promise3 = fetch(`https://aws.random.cat/meow`).then((res) => res.json());
 
-let racePromise = Promise.race(
-  allUrl.map(function (url) {
-    return fetch(url)
-      .then(function (response) {
-        return response.json();
-      })
-      .then((res) => console.log(res));
-  })
-);
+Promise.race([promise2, promise3]).then(console.log);
 ```
 
 - Use `Promise.allSettled` to log the value of each promise from the given list of promises. And also check if `Promise.all` works with `one`, `two` and `three` or not
@@ -92,5 +85,5 @@ Promise.all([
   { name: 'John' },
 ]).then(console.log);
 
-// ["Arya","sam",{ name: 'John' }]; after 2002ms
+// ["Arya","sam",{ name: 'John' }]; after 1000ms
 ```
