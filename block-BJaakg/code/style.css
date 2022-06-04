@@ -1,0 +1,275 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* General Styles */
+
+body {
+    background: linear-gradient(#7156a6, #687be3) no-repeat;
+    background-attachment: fixed;
+}
+
+.center {
+    text-align: center;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 100%;
+    width: 900px;
+    padding: 0 2rem;
+    margin: 0 auto;
+    position: relative;
+}
+
+header {
+    color: black;
+    font-size: 2rem;
+    font-weight: 550;
+    padding: 1.5rem;
+}
+
+.card {
+    width: 100%;
+    border: 1px dashed red;
+    text-align: center;
+    background: white;
+    padding: 2rem 0;
+    flex-basis: 50%;
+}
+
+.show-button {
+    background: black;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 1.6rem;
+    font-weight: 550;
+    margin-bottom: 2rem;
+}
+
+p {
+    margin: 1.5rem 0;
+    font-weight: 490;
+    font-size: 1.2rem;
+}
+
+.card-cnt {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* loading indicator */
+
+@keyframes donut-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.donut {
+    display: inline-block;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #070707;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: donut-spin 1.2s linear infinite;
+}
+
+.characters-cnt {
+    padding: 2rem;
+    height: fit-content;
+    width: 900px;
+    margin: 0 auto;
+    margin-top: 5rem;
+    background: #3f898b;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+i {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+}
+
+h4 {
+    margin-right: 5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.display-none {
+    display: none;
+}
+
+.cancel {
+    cursor: pointer;
+}
+
+li {
+    margin: 1.5rem 0;
+    border: 1px solid white;
+    color: white;
+    padding: 0.78rem;
+}
