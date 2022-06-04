@@ -201,6 +201,8 @@ p {
 
 .card-cnt {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
 }
 
@@ -224,7 +226,7 @@ p {
 
 .donut {
     display: inline-block;
-    border: 4px solid rgba(0, 0, 0, 0.1);
+    border: 6px solid rgba(0, 0, 0, 0.1);
     border-left-color: #070707;
     border-radius: 50%;
     width: 50px;
@@ -244,6 +246,7 @@ p {
     left: 0;
     bottom: 0;
     right: 0;
+    border-radius: 2rem;
 }
 
 i {
@@ -256,7 +259,6 @@ h4 {
     margin-right: 5rem;
     font-size: 2rem;
     font-weight: 600;
-    text-align: center;
 }
 
 .display-none {
@@ -265,6 +267,16 @@ h4 {
 
 .cancel {
     cursor: pointer;
+    color: rgb(0, 0, 0);
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: right;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.cancel:hover {
+    color: rgb(255, 255, 255);
 }
 
 li {
@@ -273,3 +285,10 @@ li {
     color: white;
     padding: 0.78rem;
 }
+
+
+/* .spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
