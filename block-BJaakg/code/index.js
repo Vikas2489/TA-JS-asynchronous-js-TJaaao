@@ -85,7 +85,14 @@
     if (navigator.onLine) {
         fetchBooks();
     } else {
-        main.innerHTML = "Check Your Fucking Internet Connection!";
+        let h6 = document.createElement("h6");
+        h6.innerText = "Check Your Fucking Internet Connection!";
+        h6.style.color = "red";
+        h6.style.fontSize = "1.2rem";
+        h6.style.fontWeight = "300";
+        h6.className = "center";
+
+        document.querySelector("main").append(h6);
     }
 
 
